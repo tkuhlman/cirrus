@@ -1,0 +1,4 @@
+v0.1, 12/23/2010 -- Initial release.
+v0.4, 03/01/2011 -- Removed ec2 functionality, the tool now does route53 only
+v0.7, 07/06/2011 -- Updated to work with boto 2.0rc1 and the newest amazon api, Added some support for r53 aliases.
+v0.9, 09/30/2011 -- update_host.py can now handle aliases and updating a host from one type to another.

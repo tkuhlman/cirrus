@@ -1,0 +1,31 @@
+#!/bin/sh
+#
+# dns_update updates the cname record for this host in Amazon route 53
+#
+#       Written by Tim Kuhlman <tim@backgroundprocess.com>
+#
+
+### BEGIN INIT INFO
+# Provides:          dns_update
+# Required-Start:    $network
+# Required-Stop:     $network
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: dns_update for AWS route 53
+# Description:       A script to update the dns entry of this box on boot
+### END INIT INFO
+
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+NAME=dns_update
+DESC="dns update"
+FQDN=""
+export AWS_ACCESS_ID=""
+export AWS_SECRET_KEY=""
+
+set -e
+
+#Get our amazon hostname
+ec2_hostname=`curl -s http://169.254.169.254/latest/meta-data/public-hostname`.
+
+update_host.py $FQDN -c $ec2_hostname -t 60
+echo "Set cname $ec2_hostname for $FQDN"

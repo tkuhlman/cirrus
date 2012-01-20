@@ -1,0 +1,6 @@
+---
+access_id: 
+secret_key: 
+#zone name and bind style zone file, note SOA and NS records for the root are ignored but needed for parsing.
+zones:
+    'myzone.com': /path/to/my/bind-style-zone.file
