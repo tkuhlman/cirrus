@@ -28,17 +28,19 @@ def get_args(usage):
     return parser.parse_args()
 
 def main():
-    usage = "usage: %prog <fqdn> <-c [cname] | -a [a record] | -A [Route 53 Alias]>"
+    usage = "usage: %prog <fqdn> [domain] <-c [cname] | -a [a record] | -A [Route 53 Alias]>"
     options, args = get_args(usage)
-
-    if len(args) != 1:
+    if len(args) < 1 or len(args) > 2:
         print usage
         sys.exit(1)
     host = args[0] #host is fqdn
-    if host.count('.') > 1:
-        domain = host.split('.', 1)[1]
-    else: #must be the domain root
-        domain = host
+    if len(args) == 2:
+        domain = args[1] #domain is zone
+    else:
+        if host.count('.') > 1:
+            domain = host.split('.', 1)[1]
+        else: #must be the domain root
+            domain = host
 
     if not ( os.environ.has_key('AWS_ACCESS_ID') and os.environ.has_key('AWS_SECRET_KEY') ):
         log.error("Please set environment variables AWS_ACCESS_ID and AWS_SECRET_KEY")
