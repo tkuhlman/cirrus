@@ -22,6 +22,6 @@ setup(
         "Topic :: Utilities",
         "License :: OSI Approved :: BSD License",
     ],
-    install_requires = ['boto>=2.0', 'PyYAML>=3.09', 'paramiko>=1.7.6', 'dnspython'],
+    install_requires = ['boto>=2.0', 'PyYAML>=3.09', 'dnspython'],
 )
 
