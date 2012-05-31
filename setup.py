@@ -6,7 +6,7 @@ def read(fname):
 
 setup(
     name = "Cirrus",
-    version = "0.9",
+    version = "0.10",
     author = "Tim Kuhlman",
     author_email = "tim@backgroundprocess.com",
     description = ("A set of tools for configuring Amazon route53"),
