@@ -25,7 +25,7 @@ class Zone:
         #Set on create or exists call
         self.id = None
         self.xml_header = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" + \
-            "<ChangeResourceRecordSetsRequest xmlns=\"https://route53.amazonaws.com/doc/2011-05-05/\">\n" + \
+            "<ChangeResourceRecordSetsRequest xmlns=\"https://route53.amazonaws.com/doc/2012-02-29/\">\n" + \
             " <ChangeBatch>\n" + "  <Comment>Updates to Zone " + self.zone_name + "</Comment>\n" + "  <Changes>\n"
         self.xml_footer = "  </Changes>\n" + " </ChangeBatch>\n" + "</ChangeResourceRecordSetsRequest>\n"
 
